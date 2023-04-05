@@ -9,7 +9,6 @@
 import SwiftUI
 
 struct ContentView: View {
-    
     // Define variables to store input and result
     @State private var input1 = ""
     @State private var input2 = ""
@@ -19,6 +18,7 @@ struct ContentView: View {
     enum CalculatorError: Error {
         case divisionByZero
         case invalidInput
+        
     }
     
     var body: some View {
@@ -36,6 +36,7 @@ struct ContentView: View {
                     do {
                         let sum = try calculateResult(operatorSymbol: "+")
                         result = String(format: "%.2f", sum)
+                        
                     } catch CalculatorError.invalidInput {
                         result = "Invalid input"
                     } catch {
